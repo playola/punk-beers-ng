@@ -6,10 +6,10 @@ export const getBeers = (state: BeersState) => state.beers;
 
 export const beersState = createSelector(
   getDrinksState,
-  (state: DrinksState) => state.beersState
+  (state: DrinksState) => state.beersState,
 );
 
 export const getBeersSelector = createSelector(
   beersState,
-  getBeers
+  getBeers,
 );

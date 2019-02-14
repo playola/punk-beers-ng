@@ -9,11 +9,6 @@ $primary: #D1F0F5;
   margin: 50px;
   justify-content: center;
   align-items: center;
-  
-  :hover {
-    cursor: pointer;
-    background-color: $primary;
-  }
 
   .beer {
     display: flex;
@@ -25,6 +20,10 @@ $primary: #D1F0F5;
     margin: 15px;
     h4 {
       margin-bottom: 0;
+      :hover {
+        cursor: pointer;
+        background-color: $primary;
+      }
     }
     h4, p {
       text-align: center;

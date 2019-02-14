@@ -13,7 +13,7 @@ import { fetchBeersListRequest } from '../store/beers.actions';
 export class BeerListComponent implements OnInit {
   public beers$: Observable<any>;
 
-  constructor(private store: Store<DrinksState>) { }
+  constructor(private store: Store<DrinksState>) {}
 
   ngOnInit() {
     this.store.dispatch(fetchBeersListRequest());

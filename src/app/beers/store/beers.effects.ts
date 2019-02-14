@@ -7,18 +7,16 @@ import { FETCH_BEERS_REQUEST, fetchBeersListFailed, fetchBeersListResponse } fro
 
 @Injectable()
 export class BeersEffects {
-
   constructor(
     private actions$: Actions,
-    private beersService: BeersService
-  ) {
-  }
+    private beersService: BeersService,
+  ) {}
 
   @Effect() fetchBeers = this.actions$
     .pipe(
       ofType(FETCH_BEERS_REQUEST),
       switchMap(() => this.beersService.getBeers()),
       map((res) => fetchBeersListResponse(res)),
-      catchError(() => of(fetchBeersListFailed()))
+      catchError(() => of(fetchBeersListFailed())),
     );
 }

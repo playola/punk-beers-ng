@@ -3,13 +3,13 @@ import { BeersState } from './beers.state-type';
 import { beersReducer } from './beers.reducer';
 
 export interface DrinksState {
-  beersState: BeersState
+  beersState: BeersState,
 }
 
 export const beersReducers: ActionReducerMap<DrinksState> = {
-  beersState: beersReducer
+  beersState: beersReducer,
 };
 
 export const getDrinksState = createFeatureSelector<DrinksState>(
-  'drinks'
+  'drinks',
 );

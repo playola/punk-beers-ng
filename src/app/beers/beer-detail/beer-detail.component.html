@@ -1,5 +1,12 @@
 <div class="beer-detail">
-  <h4>
-    Beer detail page
-  </h4>
+  <h2>Beer detail</h2>
+  <p>Name: {{ beerDetail.name }}</p>
+  <p>Description: {{ beerDetail.description }}</p>
+  <p>First brewed: {{ beerDetail.first_brewed }}</p>
+  <p>{{ beerDetail.image_url }}</p>
+  <p>{{ beerDetail.food_pairing }}</p>
+  <p>Alcohol by volume: {{ beerDetail.abv }}</p>
+  <p>International Bitterness Units: {{ beerDetail.ibu }}</p>
+  <p>Contributed by: {{ beerDetail.contributed_by }}</p>
+  <button class="back-button" (click)="backClicked()">Go back</button>
 </div>
