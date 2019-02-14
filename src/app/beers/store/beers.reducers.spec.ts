@@ -3,9 +3,7 @@ import { FETCH_BEERS_RESPONSE } from './beers.actions';
 import { GenericAction } from '../../models';
 import { beersReducer } from './beers.reducer';
 
-
 describe('beersReducer', () => {
-
   const initialState: BeersState = {
     beers: []
   };

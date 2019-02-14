@@ -1,15 +1,12 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { BeersService } from './beers.service';
+import { TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
+import { BeersService } from './beers.service';
 
 class MockHttp {
   get() {}
 }
 
-
 describe('BeersService', () => {
-
   let http: HttpClient;
   let beersService: BeersService;
 

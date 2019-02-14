@@ -1,15 +1,19 @@
 
 $width: 200px;
 $height: 300px;
-
+$primary: #D1F0F5;
 
 :host {
-
   display: flex;
   flex-wrap: wrap;
   margin: 50px;
   justify-content: center;
   align-items: center;
+  
+  :hover {
+    cursor: pointer;
+    background-color: $primary;
+  }
 
   .beer {
     display: flex;

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BeerListComponent } from './beer-list/beer-list.component';
 import { RouterModule } from '@angular/router';
-import { BeersRouting } from './beers.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { beersReducers } from './store';
 import { EffectsModule } from '@ngrx/effects';
+import { BeerListComponent } from './beer-list/beer-list.component';
+import { BeerDetailComponent } from './beer-detail/beer-detail.component';
+import { BeersRouting } from './beers.routing';
+import { beersReducers } from './store';
 import { BeersEffects } from './store/beers.effects';
 import { BeersService } from './beers.service';
 
@@ -19,7 +20,8 @@ import { BeersService } from './beers.service';
     EffectsModule.forFeature([BeersEffects])
   ],
   declarations: [
-    BeerListComponent
+    BeerListComponent,
+    BeerDetailComponent
   ],
   providers: [
     BeersService

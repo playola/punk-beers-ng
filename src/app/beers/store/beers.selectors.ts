@@ -1,8 +1,6 @@
 import { createSelector } from '@ngrx/store';
-
 import { DrinksState, getDrinksState } from './index';
 import { BeersState } from './beers.state-type';
-
 
 export const getBeers = (state: BeersState) => state.beers;
 

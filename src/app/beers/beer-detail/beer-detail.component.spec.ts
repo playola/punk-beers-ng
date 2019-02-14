@@ -1,11 +1,11 @@
 import { async, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
-import { BeerListComponent } from './beer-list.component';
+import { BeerDetailComponent } from './beer-detail.component';
 import { DrinksState } from '../store';
 import { fetchBeersListRequest } from '../store/beers.actions';
 
-describe('BeerListComponent', () => {
-  let component: BeerListComponent;
+describe('BeerDetailComponent', () => {
+  let component: BeerDetailComponent;
   let store: Store<DrinksState>;
 
   beforeEach(async(() => {
@@ -14,14 +14,14 @@ describe('BeerListComponent', () => {
         StoreModule.forRoot({})
       ],
       declarations: [
-        BeerListComponent
+        BeerDetailComponent
       ],
       providers: [
         Store
       ]
     });
 
-    component = TestBed.createComponent(BeerListComponent).componentInstance;
+    component = TestBed.createComponent(BeerDetailComponent).componentInstance;
     store = TestBed.get(Store);
   }));
 

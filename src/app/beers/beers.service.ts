@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/index';
   providedIn: 'root'
 })
 export class BeersService {
-
   constructor(private http: HttpClient) { }
 
   public getBeers(): Observable<any> {

@@ -1,7 +1,6 @@
-import { BeersState } from './beers.state-type';
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
+import { BeersState } from './beers.state-type';
 import { beersReducer } from './beers.reducer';
-
 
 export interface DrinksState {
   beersState: BeersState
@@ -14,6 +13,3 @@ export const beersReducers: ActionReducerMap<DrinksState> = {
 export const getDrinksState = createFeatureSelector<DrinksState>(
   'drinks'
 );
-
-
-
