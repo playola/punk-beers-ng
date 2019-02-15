@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
+
+import { RouterModule } from '@angular/router';
 import { BeerListComponent } from './beer-list/beer-list.component';
 import { BeerDetailComponent } from './beer-detail/beer-detail.component';
+import { BeerButtonComponent } from './shared/beer-button.component';
 import { BeersRouting } from './beers.routing';
+
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { beersReducers } from './store';
 import { BeersEffects } from './store/beers.effects';
 import { BeersService } from './beers.service';
@@ -17,14 +23,16 @@ import { BeersService } from './beers.service';
     HttpClientModule,
     RouterModule.forChild(BeersRouting),
     StoreModule.forFeature('drinks', beersReducers),
-    EffectsModule.forFeature([BeersEffects])
+    EffectsModule.forFeature([BeersEffects]),
+    InfiniteScrollModule,
   ],
   declarations: [
     BeerListComponent,
-    BeerDetailComponent
+    BeerDetailComponent,
+    BeerButtonComponent,
   ],
   providers: [
-    BeersService
-  ]
+    BeersService,
+  ],
 })
 export class BeersModule { }

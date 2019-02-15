@@ -19,4 +19,11 @@ export class BeerListComponent implements OnInit {
     this.store.dispatch(fetchBeersListRequest());
     this.beers$ = this.store.pipe(select(getBeersSelector));
   }
+
+  /**
+   * Fetch more beers on scroll down.
+   */
+  onScroll() {
+    console.log('Fetch more beers here');
+  }
 }

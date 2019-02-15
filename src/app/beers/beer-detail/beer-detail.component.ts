@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs/index';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs/index';
+
+import { select, Store } from '@ngrx/store';
 import { DrinksState } from '../store';
 import { getBeersSelector } from '../store/beers.selectors';
 
@@ -12,30 +13,11 @@ import { getBeersSelector } from '../store/beers.selectors';
   styleUrls: ['./beer-detail.component.scss']
 })
 export class BeerDetailComponent implements OnInit, OnDestroy {
-  id: number;
-  beerDetail: {
-    id: number,
-    name: string,
-    description: string,
-    first_brewed: string,
-    image_url: string,
-    food_pairing: Array<string>,
-    adv: string,
-    ibu: string,
-    contributed_by: string,
-  } = {
-    id: 0,
-    name: 'playola',
-    description: 'dummy description',
-    first_brewed: '',
-    image_url: '',
-    food_pairing: [],
-    adv: '0',
-    ibu: '0',
-    contributed_by: 'playola',
-  };
   private sub: any;
   public beers$: Observable<any>;
+
+  id: number;
+  beerDetail: object;
 
   constructor(
     private store: Store<DrinksState>,
@@ -52,7 +34,7 @@ export class BeerDetailComponent implements OnInit, OnDestroy {
     });
 
     /**
-     * Get beer detail by id.
+     * Get beers and filter by id to get the beer detail.
      */
     this.beers$ = this.store.pipe(select(getBeersSelector));
     this.beers$.subscribe(beers => {
@@ -72,5 +54,12 @@ export class BeerDetailComponent implements OnInit, OnDestroy {
    */
   backClicked() {
     this._location.back();
+  }
+
+  /**
+   * Toggle difference between X and Y
+   */
+  toggleDifference() {
+    console.log('toggle difference');
   }
 }
