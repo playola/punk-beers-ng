@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BeerListComponent } from './beer-list/beer-list.component';
 import { BeerDetailComponent } from './beer-detail/beer-detail.component';
-import { BeerButtonComponent } from './shared/beer-button.component';
+import { BeerButtonComponent } from './shared/beer-button/beer-button.component';
+import { InputFieldComponent } from './shared/input-field/input-field.component';
 import { BeersRouting } from './beers.routing';
 
 import { StoreModule } from '@ngrx/store';
@@ -30,6 +31,7 @@ import { BeersService } from './beers.service';
     BeerListComponent,
     BeerDetailComponent,
     BeerButtonComponent,
+    InputFieldComponent,
   ],
   providers: [
     BeersService,

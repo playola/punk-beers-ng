@@ -5,10 +5,17 @@ $primary: #D1F0F5;
 
 :host {
   display: flex;
-  flex-wrap: wrap;
-  margin: 50px;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding-top: 25px;
+
+  .infinite-scroll {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+    justify-content: center;
+    align-items: center;
+  }
 
   .beer {
     display: flex;

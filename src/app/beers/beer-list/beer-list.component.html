@@ -1,10 +1,11 @@
+<input-field></input-field>
 <div
-    class="search-results"
-    infiniteScroll
-    [infiniteScrollDistance]="2"
-    [infiniteScrollThrottle]="50"
-    (scrolled)="onScroll()"
-  >
+  class="infinite-scroll"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+>
   <div
     class="beer"
     *ngFor="let beer of (beers$ | async)"

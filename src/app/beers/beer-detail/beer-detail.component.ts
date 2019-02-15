@@ -7,6 +7,8 @@ import { select, Store } from '@ngrx/store';
 import { DrinksState } from '../store';
 import { getBeersSelector } from '../store/beers.selectors';
 
+import { getLocalStorageItem } from '../../../utils/local-storage/local-storage';
+
 @Component({
   selector: 'app-beer-detail',
   templateUrl: './beer-detail.component.html',
@@ -18,11 +20,12 @@ export class BeerDetailComponent implements OnInit, OnDestroy {
 
   id: number;
   beerDetail: object;
+  isDifferenceHidden = true;
 
   constructor(
     private store: Store<DrinksState>,
     private route: ActivatedRoute,
-    private _location: Location
+    private _location: Location,
   ) {}
 
   ngOnInit() {
@@ -38,7 +41,15 @@ export class BeerDetailComponent implements OnInit, OnDestroy {
      */
     this.beers$ = this.store.pipe(select(getBeersSelector));
     this.beers$.subscribe(beers => {
-      this.beerDetail = beers.find((beer: { id: number }) => beer.id === this.id);
+      /**
+       * Check if we have the data in the application store or local storage.
+       */
+      if (beers || beers.length === 0) {
+        let beersStored = getLocalStorageItem('beers');
+        this.beerDetail = beersStored && beersStored.find((beer: { id: number }) => beer.id === this.id);
+      } else {
+        this.beerDetail = beers.find((beer: { id: number }) => beer.id === this.id);
+      }
     });
   }
 
@@ -57,9 +68,9 @@ export class BeerDetailComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Toggle difference between X and Y
+   * Toggle difference between 'target_og' and 'target_fg'
    */
-  toggleDifference() {
-    console.log('toggle difference');
+  hangleToggle() {
+    this.isDifferenceHidden = !this.isDifferenceHidden;
   }
 }

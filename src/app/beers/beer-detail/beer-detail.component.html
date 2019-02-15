@@ -4,13 +4,16 @@
     <p>Name: {{ beerDetail.name }}</p>
     <p>Description: {{ beerDetail.description }}</p>
     <p>First brewed: {{ beerDetail.first_brewed }}</p>
-    <p>{{ beerDetail.image_url }}</p>
-    <p>{{ beerDetail.food_pairing }}</p>
+    <img class="beer-detail-img" src="{{ beerDetail.image_url }}"/>
+    <p>Food Pairing: {{ beerDetail.food_pairing }}</p>
     <p>Alcohol by volume: {{ beerDetail.abv }}</p>
     <p>International Bitterness Units: {{ beerDetail.ibu }}</p>
     <p>Contributed by: {{ beerDetail.contributed_by }}</p>
     <beer-button (onClick)="backClicked($event)" label="Go back"></beer-button>
-    <beer-button (onClick)="toggleDifference($event)" label="Toggle difference"></beer-button>
+    <beer-button (onClick)="hangleToggle($event)" label="Toggle difference"></beer-button>
+    <p [hidden]="isDifferenceHidden">
+      Difference: {{ beerDetail.target_og - beerDetail.target_fg }}
+    </p>
   </div>
   <ng-template #elseBlock>
     Ups, something happen with the data.
