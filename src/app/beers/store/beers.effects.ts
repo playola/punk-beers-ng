@@ -11,7 +11,7 @@ import {
 import {
   setLocalStorageItem,
   getLocalStorageItem,
-} from '../../../utils/local-storage/local-storage';
+} from 'src/utils/local-storage/local-storage';
 
 @Injectable()
 export class BeersEffects {

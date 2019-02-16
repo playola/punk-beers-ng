@@ -1,3 +1,3 @@
 /**
- * TODO: Local Storage tests.
+ * TO DO: Local Storage tests.
  */

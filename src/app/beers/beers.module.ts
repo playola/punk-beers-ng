@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { BeerListComponent } from './beer-list/beer-list.component';
@@ -22,6 +23,7 @@ import { BeersService } from './beers.service';
   imports: [
     CommonModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forChild(BeersRouting),
     StoreModule.forFeature('drinks', beersReducers),
     EffectsModule.forFeature([BeersEffects]),

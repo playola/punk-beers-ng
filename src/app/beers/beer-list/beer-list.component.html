@@ -1,4 +1,7 @@
-<input-field></input-field>
+<input-field
+  (inputModelChange)="handleOnChange($event)"
+  [(inputModel)]="externalValue"
+></input-field>
 <div
   class="infinite-scroll"
   infiniteScroll
@@ -8,7 +11,7 @@
 >
   <div
     class="beer"
-    *ngFor="let beer of (beers$ | async)"
+    *ngFor="let beer of filteredBeers"
   >
     <nav class="nav-beer">
       <a [routerLink]="['/beers', beer.id]" routerLinkActive="active">
